@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context=".presentation.tasks.TasksCreateActivity">
+
+    <ImageView
+        android:id="@+id/ivBackArrow"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/string_tasks_create"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/ivBackArrow"
+        app:layout_constraintStart_toEndOf="@id/ivBackArrow"
+        app:layout_constraintTop_toTopOf="@id/ivBackArrow" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivBackArrow" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/tasksCreateAddTask"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/stringAddTask"
+        android:textAllCaps="false"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp"
+        app:backgroundTint="@color/colorWhite"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toStartOf="@id/tasksCreateContinue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvLayout" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/tasksCreateContinue"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/stringContinue"
+        android:textAllCaps="false"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp"
+        app:backgroundTint="@color/colorWhite"
+        app:cornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/tasksCreateAddTask"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tasksCreateAddTask"
+        app:layout_constraintTop_toTopOf="@id/tasksCreateAddTask" />
+</androidx.constraintlayout.widget.ConstraintLayout>
