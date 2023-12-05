@@ -4,7 +4,9 @@ import com.maninmiddle.tests.data.model.MainModel
 import com.maninmiddle.tests.data.model.TaskModel
 import com.maninmiddle.tests.data.model.TestModel
 import com.maninmiddle.tests.data.model.VariantModel
+import com.maninmiddle.tests.util.Constants.END_POINT_CREATE_TASK
 import com.maninmiddle.tests.util.Constants.END_POINT_CREATE_TEST
+import com.maninmiddle.tests.util.Constants.END_POINT_CREATE_VARIANT
 import com.maninmiddle.tests.util.Constants.END_POINT_GET_TASKS
 import com.maninmiddle.tests.util.Constants.END_POINT_GET_TESTS
 import com.maninmiddle.tests.util.Constants.END_POINT_GET_TEST_BY_ID
@@ -30,5 +32,11 @@ interface ApiService {
     suspend fun getTestById(@Query("testId") id: Int): Response<TestModel>
 
     @POST(END_POINT_CREATE_TEST)
-    suspend fun createTest(@Body test: TestModel)
+    suspend fun createTest(@Body test: TestModel): Response<String>
+
+    @POST(END_POINT_CREATE_TASK)
+    suspend fun createTask(@Body task: TaskModel): Response<String>
+
+    @POST(END_POINT_CREATE_VARIANT)
+    suspend fun createVariant(@Body variant: VariantModel): Response<String>
 }

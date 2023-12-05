@@ -20,12 +20,10 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class TestCreateActivity : AppCompatActivity() {
-    private lateinit var viewModel: TestCreateViewModel
     private lateinit var binding: ActivityTestCreateBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTestCreateBinding.inflate(layoutInflater)
-        viewModel = ViewModelProvider(this)[TestCreateViewModel::class.java]
         setContentView(binding.root)
 
 

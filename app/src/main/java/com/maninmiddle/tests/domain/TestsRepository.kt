@@ -7,7 +7,7 @@ import com.maninmiddle.tests.data.model.VariantModel
 import retrofit2.Response
 
 interface TestsRepository {
-    suspend fun createTest(testModel: TestModel)
+    suspend fun createTest(testModel: TestModel): Response<String>
 
     suspend fun getTests(): Response<List<TestModel>>
 
@@ -16,5 +16,9 @@ interface TestsRepository {
     suspend fun getVariants(taskId: Int): Response<List<VariantModel>>
 
     suspend fun getTestById(id: Int): Response<TestModel>
+
+    suspend fun createTask(taskModel: TaskModel): Response<String>
+
+    suspend fun createVariant(variantModel: VariantModel): Response<String>
 
 }

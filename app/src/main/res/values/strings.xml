@@ -37,4 +37,14 @@
     <string name="string_tasks_create">Создание заданий</string>
     <string name="stringAddTask">Добавить вопрос\n</string>
     <string name="stringContinue">Далее</string>
+    <string name="string_limit_tasks">Превышен лимит заданий</string>
+    <string name="stringTaskNoText">У задания отсутствует текст</string>
+    <string name="stringVariantNotText">У варианта отсуствует текст</string>
+    <string name="stringTaskNoRightVariant">Не выбран правильный вариант</string>
+    <string name="stringName">Имя</string>
+    <string name="stringStart">Начать</string>
+    <string name="stringCreate">Создать</string>
+    <string name="stringTasksCount">Количество заданий</string>
+    <string name="stringCompleteTime">Время выполнения</string>
+    <string name="stringDirection">Направление</string>
 </resources>

@@ -11,7 +11,7 @@ import javax.inject.Inject
 class TestsRepositoryImpl @Inject constructor(
     private val apiService: ApiService
 ) : TestsRepository {
-    override suspend fun createTest(testModel: TestModel) {
+    override suspend fun createTest(testModel: TestModel): Response<String> {
         return apiService.createTest(testModel)
     }
 
@@ -29,5 +29,13 @@ class TestsRepositoryImpl @Inject constructor(
 
     override suspend fun getTestById(id: Int): Response<TestModel> {
         return apiService.getTestById(id)
+    }
+
+    override suspend fun createTask(taskModel: TaskModel): Response<String> {
+        return apiService.createTask(taskModel)
+    }
+
+    override suspend fun createVariant(variantModel: VariantModel): Response<String> {
+        return apiService.createVariant(variantModel)
     }
 }
