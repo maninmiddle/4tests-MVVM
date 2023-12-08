@@ -38,5 +38,5 @@ interface ApiService {
     suspend fun createTask(@Body task: TaskModel): Response<String>
 
     @POST(END_POINT_CREATE_VARIANT)
-    suspend fun createVariant(@Body variant: VariantModel): Response<String>
+    suspend fun createVariant(@Body variant: VariantModel): Response<Any>
 }

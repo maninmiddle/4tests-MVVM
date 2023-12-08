@@ -35,7 +35,7 @@ class TestsRepositoryImpl @Inject constructor(
         return apiService.createTask(taskModel)
     }
 
-    override suspend fun createVariant(variantModel: VariantModel): Response<String> {
+    override suspend fun createVariant(variantModel: VariantModel): Response<Any> {
         return apiService.createVariant(variantModel)
     }
 }

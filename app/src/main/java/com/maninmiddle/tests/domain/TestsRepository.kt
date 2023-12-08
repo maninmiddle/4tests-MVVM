@@ -19,6 +19,6 @@ interface TestsRepository {
 
     suspend fun createTask(taskModel: TaskModel): Response<String>
 
-    suspend fun createVariant(variantModel: VariantModel): Response<String>
+    suspend fun createVariant(variantModel: VariantModel): Response<Any>
 
 }

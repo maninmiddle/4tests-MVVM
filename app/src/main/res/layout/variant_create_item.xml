@@ -4,16 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
-    <CheckBox
+    <com.google.android.material.checkbox.MaterialCheckBox
         android:id="@+id/variantsCreateItemCheckbox"
         android:layout_width="30dp"
         android:layout_height="20dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
-        android:buttonTint="@color/colorWhite"
+        app:buttonTint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/variantsCreateItemTextLayout"
@@ -26,6 +26,7 @@
         app:counterEnabled="true"
         app:counterMaxLength="140"
         app:counterTextColor="@color/colorWhite"
+        app:hintTextColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/variantsCreateItemCheckbox"
         app:layout_constraintTop_toTopOf="parent">
