@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.maninmiddle.tests.data.model.ApiState
 import com.maninmiddle.tests.data.model.TestModel
 import com.maninmiddle.tests.data.repository.TestsRepositoryImpl
+import com.maninmiddle.tests.domain.GetTestsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val repositoryImpl: TestsRepositoryImpl
+    private val getTestsUseCase: GetTestsUseCase
 ) : ViewModel() {
     private val _responseTests = MutableStateFlow<ApiState<List<TestModel>?>>(
         ApiState.Empty
@@ -27,7 +28,7 @@ class MainViewModel @Inject constructor(
     fun getTests() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                repositoryImpl.getTests().let { response ->
+                getTestsUseCase.getTests().let { response ->
                     if (response.isSuccessful) {
                         val data = response.body()
                         _responseTests.value = ApiState.Success(data)

@@ -7,6 +7,8 @@ import com.maninmiddle.tests.data.model.ApiState
 import com.maninmiddle.tests.data.model.TaskModel
 import com.maninmiddle.tests.data.model.VariantModel
 import com.maninmiddle.tests.data.repository.TestsRepositoryImpl
+import com.maninmiddle.tests.domain.GetTasksUseCase
+import com.maninmiddle.tests.domain.GetVariantsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,7 +18,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SolveViewModel @Inject constructor(
-    private val repositoryImpl: TestsRepositoryImpl
+    private val repositoryImpl: TestsRepositoryImpl,
+    private val getTasksUseCase: GetTasksUseCase,
+    private val getVariantsUseCase: GetVariantsUseCase
 ) : ViewModel() {
 
     private val _responseTask = MutableStateFlow<ApiState<List<TaskModel>?>>(ApiState.Empty)
@@ -62,7 +66,7 @@ class SolveViewModel @Inject constructor(
 
     fun getTask(testId: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            repositoryImpl.getTasks(testId).let { response ->
+            getTasksUseCase.getTasks(testId).let { response ->
                 if (response.isSuccessful) {
                     val data = response.body()
                     _responseTask.value = ApiState.Success(data)
@@ -75,7 +79,7 @@ class SolveViewModel @Inject constructor(
 
     fun getVariants(taskId: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            repositoryImpl.getVariants(taskId).let { response ->
+            getVariantsUseCase.getVariants(taskId).let { response ->
                 if (response.isSuccessful) {
                     val data = response.body()
                     _responseVariants.value = ApiState.Success(data)

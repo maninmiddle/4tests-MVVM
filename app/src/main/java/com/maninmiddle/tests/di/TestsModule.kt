@@ -19,6 +19,11 @@ object TestsModule {
 
 
     @Provides
+    fun provideTestsRepository(apiService: ApiService): TestsRepository {
+        return TestsRepositoryImpl(apiService)
+    }
+
+    @Provides
     @Singleton
     fun provideRetrofitInstance(): ApiService =
         Retrofit.Builder()

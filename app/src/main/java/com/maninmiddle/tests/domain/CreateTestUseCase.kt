@@ -5,7 +5,6 @@ import javax.inject.Inject
 
 class CreateTestUseCase @Inject constructor(
     private val repository: TestsRepository,
-    private val testModel: TestModel
 ) {
-    suspend operator fun invoke() = repository.createTest(testModel)
+    suspend fun createTest(testModel: TestModel) = repository.createTest(testModel)
 }

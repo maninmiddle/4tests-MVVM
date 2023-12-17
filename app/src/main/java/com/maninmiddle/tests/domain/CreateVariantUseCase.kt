@@ -5,7 +5,6 @@ import javax.inject.Inject
 
 class CreateVariantUseCase @Inject constructor(
     private val repository: TestsRepository,
-    private val variantModel: VariantModel
 ) {
-    suspend operator fun invoke() = repository.createVariant(variantModel)
+    suspend fun createVariant(variantModel: VariantModel) = repository.createVariant(variantModel)
 }
