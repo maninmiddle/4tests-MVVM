@@ -37,6 +37,11 @@ class MainActivity : AppCompatActivity() {
         response()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getTests()
+    }
+
     private fun response() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -57,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                         }
 
                         else -> {
-                           // not used
+                            // not used
                         }
                     }
 
