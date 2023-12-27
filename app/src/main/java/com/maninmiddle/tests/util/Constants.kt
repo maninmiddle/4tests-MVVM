@@ -1,7 +1,7 @@
 package com.maninmiddle.tests.util
 
 object Constants {
-    const val BASE_URL = "http://127.0.0.1:3000"
+    const val BASE_URL = "http://localhost:3000"
     const val END_POINT_GET_TESTS = "getTests"
     const val END_POINT_GET_TASKS = "getTasks"
     const val END_POINT_GET_TEST_BY_ID = "getTestById"

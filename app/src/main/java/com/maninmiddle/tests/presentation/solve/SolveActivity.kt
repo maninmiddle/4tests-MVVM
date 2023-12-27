@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -34,6 +36,19 @@ class SolveActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[SolveViewModel::class.java]
         binding = ActivitySolveBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Toast.makeText(
+                    this@SolveActivity,
+                    getString(R.string.stringTestExit),
+                    Toast.LENGTH_SHORT
+                ).show()
+                viewModel.cancelTimer()
+                finish()
+            }
+
+        })
 
         val testId = intent.getStringExtra(RECEIVE_TEST_ID)
         val completeTime = intent.getStringExtra(RECEIVE_COMPLETE_TIME)!!.toLong() * 1000

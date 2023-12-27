@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.maninmiddle.tests.data.model.ApiState
 import com.maninmiddle.tests.data.model.TaskModel
 import com.maninmiddle.tests.data.model.VariantModel
-import com.maninmiddle.tests.data.repository.TestsRepositoryImpl
 import com.maninmiddle.tests.domain.GetTasksUseCase
 import com.maninmiddle.tests.domain.GetVariantsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +17,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SolveViewModel @Inject constructor(
-    private val repositoryImpl: TestsRepositoryImpl,
     private val getTasksUseCase: GetTasksUseCase,
     private val getVariantsUseCase: GetVariantsUseCase
 ) : ViewModel() {
@@ -50,7 +48,7 @@ class SolveViewModel @Inject constructor(
             }
 
             override fun onFinish() {
-                _canContinue.value = false
+                _canContinue.value = true
             }
 
 
@@ -58,8 +56,13 @@ class SolveViewModel @Inject constructor(
 
     }
 
+    fun changeStateCanContinue() {
+        _canContinue.value = !_canContinue.value
+    }
+
 
     fun cancelTimer() {
+        _canContinue.value = false
         countDownTimer?.cancel()
     }
 

@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tvCurrentTests"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -28,6 +29,18 @@
         app:layout_constraintBottom_toBottomOf="@id/ivBackArrow"
         app:layout_constraintStart_toEndOf="@id/ivBackArrow"
         app:layout_constraintTop_toTopOf="@id/ivBackArrow" />
+
+
+    <ImageView
+        android:id="@+id/ivSearch"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_search"
+        app:layout_constraintBottom_toBottomOf="@id/tvCurrentTests"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvCurrentTests"
+        android:contentDescription="@string/findtest" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLayout"
@@ -42,24 +55,24 @@
         android:id="@+id/ivSad"
         android:layout_width="55dp"
         android:layout_height="55dp"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/ic_sad"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/app_name" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:visibility="gone"
         android:gravity="center"
         android:text="@string/string_cannot_connect"
         android:textColor="@color/white"
         android:textSize="23sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivSad" />

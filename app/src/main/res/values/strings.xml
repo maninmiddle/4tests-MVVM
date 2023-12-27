@@ -47,4 +47,9 @@
     <string name="stringTasksCount">Количество заданий</string>
     <string name="stringCompleteTime">Время выполнения</string>
     <string name="stringDirection">Направление</string>
+    <string name="findtest">FindTest</string>
+    <string name="stringTypeTestId">Введите id теста</string>
+    <string name="stringId">id</string>
+    <string name="stringEnter">Войти</string>
+    <string name="stringTestExit">Вы покинули тест</string>
 </resources>
